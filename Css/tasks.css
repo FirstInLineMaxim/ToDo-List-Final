@@ -28,9 +28,9 @@
 
 /* ListELEMENTS */
 .list-unstyled {
-    display: flex;
-    align-items: center;
-    flex-flow: column;
+    display: grid;
+    gap: 1rem;
+    justify-content: center;
 }
 
 

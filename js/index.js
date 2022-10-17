@@ -50,12 +50,10 @@ const handleCLick = () => {
         
         // creates the edit button 
         const edit = document.createElement("button")
-        edit.innerText = "edit"
         edit.className = "edit"
 
         //creates 
         const del = document.createElement("button")
-        del.innerText = "del"
         del.className = "del"
 
         const div = document.createElement("div")

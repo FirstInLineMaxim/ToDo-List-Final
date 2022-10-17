@@ -47,11 +47,10 @@ input[type="checkbox"] {
     font: inherit;
     color: currentColor;
     background-color: transparent;
-    width: 1em;
-    height: 1em;
+    width: 0.85em;
+    height: 0.85em;
     border: 0.15em solid currentColor;
     border-radius: 0.15em;
-    transform: translateY(-0.075em);
     display: grid;
     place-content: center;
   }
