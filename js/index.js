@@ -6,57 +6,82 @@ let nonchecked = null;
 let checked = document.querySelectorAll('input[type="checkbox"]:checked');
 const progress = document.querySelector('.progress-bar')
 const totalTasks = document.querySelector("#totalTasks")
+const ul = document.querySelector(".list-unstyled")
 
 // WALLPAPER BUBBLES
 const montain = document.querySelector('#Montain')
 const montain2 = document.querySelector('#Montain2')
 const forest = document.querySelector('#Forest')
 
+//CREATE ELEMENTS
+const li = document.createElement("li")
+const task = document.createElement("input")
+const checkbox = document.createElement('input')
+const edit = document.createElement("button")
+const del = document.createElement("button")
+const div = document.createElement("div")
+
 // LocalStorage
 document.body.style.backgroundColor = localStorage.getItem("newColorbg")
 
-
 // let tasks = {Done: "", TaskValue:"",};
 
-const tasks = {
-    taks1: {done:"template", task:"template"},
-}
+let tasksArr = []
 
-console.log(tasks)
-tasks.task4 = {done:"true", task:"test3"}
+let arr = localStorage.getItem("tasksArr")
+console.log(arr)
+const obj = JSON.parse(arr)
+console.log(obj)
+
+
+
+
+// gets out of local storage the task and paste
+obj.forEach((tasks, index) => {
+    checkbox.setAttribute('type', 'checkbox')
+    checkbox.checked = tasks.done;
+    task.value = `${input.value}`
+    task.disabled = true
+    task.className = "textarea"
+    edit.className = "edit"
+    del.className = "del"
+    div.className = "buttons"
+
+    ul.appendChild(li).appendChild(checkbox)
+    li.appendChild(task)
+    li.appendChild(edit)
+    li.appendChild(del)
+
+})
+
+// tasks.task4 = { done: "true", task: "test3" }
 // Object.assign({},tasks,{task4: {done:"test", task:"wassup"})
-console.log(tasks)
 
 // ADDING li with Inputed Task to ul & the buttons edit delete
-const ul = document.querySelector(".list-unstyled")
+
 const handleCLick = () => {
     if (input.value !== "") {
+        tasksArr = obj || [];
         //Creates the list item with the tasks value 
-        const checkbox = document.createElement('input')
+
         checkbox.setAttribute('type', 'checkbox')
-        const li = document.createElement("li")
-        const task = document.createElement("input")
         task.value = `${input.value}`
         task.disabled = true
         task.className = "textarea"
 
 
 
-        
-        //check tasks length
-        // const total = Object.keys(tasks).length
-        // console.log(total)
-        // tasks[`task ${total}`] = {done:"false", task:`${input.value}`}
-        
+        // Pushes new task 
+        tasksArr.push({ done: false, task: `${input.value}` })
+        console.log(tasksArr)
+        const JSONstr = JSON.stringify(tasksArr)
+        localStorage.setItem("tasksArr", JSONstr)
+
+
+
         // creates the edit button 
-        const edit = document.createElement("button")
         edit.className = "edit"
-
-        //creates 
-        const del = document.createElement("button")
         del.className = "del"
-
-        const div = document.createElement("div")
         div.className = "buttons"
 
 
@@ -68,7 +93,7 @@ const handleCLick = () => {
 
         nonchecked = document.querySelectorAll('input[type="checkbox"]')
         totalTasks.innerText = `Tasks done ${checked.length} out of ${nonchecked.length}`
-        console.log(tasks)
+
 
 
     } else {
@@ -80,31 +105,36 @@ const handleCLick = () => {
 
 const taskList = document.querySelector(".list-unstyled") // 
 taskList.addEventListener("click", function (e) {
+    nonchecked = document.querySelectorAll('input[type="checkbox"]')
+    checked = document.querySelectorAll('input[type="checkbox"]:checked')
+    totalTasks.innerText = `Tasks done ${checked.length} out of ${nonchecked.length}`
+    let percent = 100 / `${nonchecked.length}` * `${checked.length}`
+
     //checks if uelement in ul is with class edit.
     if (e.target.className === "edit") {
-        edit(e.target.previousSibling)
+        editText(e.target.previousSibling)
         return
     }
     //checks if element in ul is with class save.
     if (e.target.className === "save") {
-        edit(e.target.previousSibling)
+        editText(e.target.previousSibling)
         return
     }
     //checks if uelement un ul is with class del.
     if (e.target.className === "del") {
         Remove(e.target.parentElement)
+        nonchecked = document.querySelectorAll('input[type="checkbox"]')
+        checked = document.querySelectorAll('input[type="checkbox"]:checked')
+        progress.style.width = `${percent}%`
         return
     }
 
     //COUNT CHECKED BOXES DISPLAY IN PROGRESS
     if (e.target.type === "checkbox") {
-        checked = document.querySelectorAll('input[type="checkbox"]:checked')
-        totalTasks.innerText = `Tasks done ${checked.length} out of ${nonchecked.length}`
-        const percent = 100 / `${nonchecked.length}` * `${checked.length}`
         progress.style.width = `${percent}%`
         const newColorbg = document.body.style.backgroundColor = "#" + ((1 << 24) * Math.random() | 0).toString(16);
-        localStorage.setItem("newColorbg",newColorbg)
-        return newColorbg 
+        localStorage.setItem("newColorbg", newColorbg)
+        return newColorbg
     }
 })
 
@@ -114,10 +144,10 @@ taskList.addEventListener("click", function (e) {
 
 // }
 
-function color(){
+function color() {
     const newColorbg = document.body.style.backgroundColor = "#" + ((1 << 24) * Math.random() | 0).toString(16);
-        localStorage.setItem("newColorbg",newColorbg)
-        return newColorbg
+    localStorage.setItem("newColorbg", newColorbg)
+    return newColorbg
 }
 
 
@@ -138,7 +168,7 @@ function Remove(selectedLi) {
 }
 
 // EDIT
-function edit(selectedInput) {
+function editText(selectedInput) {
     if (selectedInput.disabled === true) {
         selectedInput.disabled = false;
         //CHANGE PENCIL TO SAVE
@@ -152,17 +182,13 @@ function edit(selectedInput) {
 }
 
 //Typing Title
-const typing=new Typed(".text", {
+const typing = new Typed(".text", {
     strings: ["", "Just do it."],
     typeSpeed: 100,
     backSpeed: 40,
     loop: false,
 });
 
-
-// bubble[0].addEventListener("click", () => document.body.style.backgroundImage = "url('\/src/Wallpaper/Montain.jpg')")
-// bubble[1].addEventListener("click", () => document.body.style.backgroundImage = "url('\/src/Wallpaper/Montain_2.jpg')")
-// bubble[2].addEventListener("click", () => document.body.style.backgroundImage = "url('\/src/Wallpaper/Forest.jpg')")
 
 
 
