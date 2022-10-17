@@ -1,0 +1,66 @@
+/* tiny reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+
+
+
+
+
+/* body */
+body {
+  background: #4d244e;
+  font-family: sans-serif;
+  /* border-top: 5px solid #aa8e8d; */
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#title {
+  display: flex;
+  justify-content: center;
+  font-size: 6rem;
+  color: #ffdfdb;
+}
+
+
+li img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.show {
+  display: flex;
+
+}
+
+
+
+.progress{
+  width: 35%;
+}
+.centerdProgress {
+  display: flex;
+  justify-content: center;
+}
+
+.text{
+    font-size: 6rem;
+     color: #ffdfdb;
+    font-family: sans-serif;
+}
+.row{
+  height: 100vh;
+}
+.container-fluid{
+height: 100vh;
+}
+.col-8 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

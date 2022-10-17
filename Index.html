@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/Css/style.css" />
+    <link rel="stylesheet" href="/Css/tasks.css" />
+    <link rel="stylesheet" href="/Css/buttons.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <!-- <header>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="true"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#" aria-current="page"
+                ><img
+                  id="Montain"
+                  src="/src/Wallpaper/Montain.jpg"
+                  alt="Mointain"
+                  class="bubble"
+                /><span class="visually-hidden">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><img
+                  id="Monatin2"
+                  src="/src/Wallpaper/Montain_2.jpg"
+                  alt="Montain_2"
+                  class="bubble"
+              /></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><img
+                  id="Forest"
+                  src="/src/Wallpaper/Forest.jpg"
+                  alt="Forest"
+                  class="bubble"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header> -->
+    <!-- MAIN -->
+    <main>
+      <!-- MAIN CONTAINER -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-8">
+            <!-- TODOS list -->
+            <!-- TITLE -->
+            <div id="title" class="text-center">
+              <div class="text"></div></div>
+            <!-- INPUT -->
+            <div id="form" class="taskBar justify-content-center">
+              <input
+                class="w-50 w-75-m w-80-l"
+                placeholder="What are you up to?"
+                type="text"
+                id="taskInput"
+              />
+              <input
+                type="image"
+                id="submit"
+                src="/src/Buttons/plus_icon.svg"
+                name="submit"
+                width="auto"
+                height="48"
+                alt="submit"
+                onclick="color()"
+              />
+            </div>
+            <!-- UL TASK -->
+            <div class="">
+              <ul class="list-unstyled"></ul>
+            </div>
+            <!-- progressbar -->
+            <div class="centerdProgress">
+              <div class="progress" style="height: 20px">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 0%"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+            <div class="totalTask"> <p id="totalTasks"></p></div>
+           
+            <!-- SEARCH -->
+          </div>
+          <div class="col-2"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer></footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+      integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>

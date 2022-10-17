@@ -1,0 +1,99 @@
+/* TASKBAR */
+.taskBar {
+    display: flex;
+}
+
+/* task input and submit button container */
+#form {
+    padding-bottom: 2rem;
+}
+#taskInput{
+    border-radius: 15px;
+    border-color: white;
+    border-width: 0px;
+}
+::-webkit-input-placeholder{
+    padding-left: 5%;
+}
+.totalTask{
+    display: flex;
+    justify-content: center;
+}
+.totalTask p{
+    color: white;
+    padding-top: 0.5em;
+}
+
+
+
+/* ListELEMENTS */
+.list-unstyled {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+
+ul span {
+    overflow: auto;
+    word-wrap: break-word;
+}
+
+.list-unstyled li {
+    display: flex;
+    gap: 2rem;
+    color: beige;
+    font-size: 2rem;
+
+}
+
+
+main li::marker {
+    content: '✝ ';
+    font-size: 1.2em;
+}
+
+/* INPUT FIELD FROM TASK LIST */
+.textarea {
+    display: flex;
+    height: 1em;
+    min-width:500px;
+    padding: 0px;
+    box-sizing: border-box;
+    line-height: normal;
+    overflow: scroll;
+}
+
+li .textarea:disabled {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: transparent;
+    color: #ffdfdb;
+    border-color: transparent;
+}
+
+
+/* CHECKMARK */
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+#submit {
+    transition: all .2s ease-in-out; 
+}
+
+#submit:hover {
+    filter: invert(50%);
+    transform: scale(1.1); 
+}
+
+/* INPUTBAR */
+#form {
+    gap: 1rem
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
