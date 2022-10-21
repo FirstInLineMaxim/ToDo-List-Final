@@ -14,12 +14,7 @@ const montain2 = document.querySelector('#Montain2')
 const forest = document.querySelector('#Forest')
 
 //CREATE ELEMENTS
-const li = document.createElement("li")
-const task = document.createElement("input")
-const checkbox = document.createElement('input')
-const edit = document.createElement("button")
-const del = document.createElement("button")
-const div = document.createElement("div")
+
 
 // LocalStorage
 document.body.style.backgroundColor = localStorage.getItem("newColorbg")
@@ -30,7 +25,7 @@ let tasksArr = []
 
 let arr = localStorage.getItem("tasksArr")
 console.log(arr)
-const obj = JSON.parse(arr)
+const obj = JSON.parse(arr) || []
 console.log(obj)
 
 
@@ -38,9 +33,15 @@ console.log(obj)
 
 // gets out of local storage the task and paste
 obj.forEach((tasks, index) => {
+const li = document.createElement("li")
+const task = document.createElement("input")
+const checkbox = document.createElement('input')
+const edit = document.createElement("button")
+const del = document.createElement("button")
+const div = document.createElement("div")
     checkbox.setAttribute('type', 'checkbox')
     checkbox.checked = tasks.done;
-    task.value = `${input.value}`
+    task.value = `${tasks.task}`
     task.disabled = true
     task.className = "textarea"
     edit.className = "edit"
@@ -62,6 +63,12 @@ obj.forEach((tasks, index) => {
 const handleCLick = () => {
     if (input.value !== "") {
         tasksArr = obj || [];
+const li = document.createElement("li")
+const task = document.createElement("input")
+const checkbox = document.createElement('input')
+const edit = document.createElement("button")
+const del = document.createElement("button")
+const div = document.createElement("div")
         //Creates the list item with the tasks value 
 
         checkbox.setAttribute('type', 'checkbox')
